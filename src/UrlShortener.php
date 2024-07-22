@@ -1,5 +1,7 @@
 <?php
 
+require_once 'Database.php';
+
 class UrlShortener
 {
     private $db;
@@ -13,9 +15,18 @@ class UrlShortener
 
     public function shortenUrl($url)
     {
-        $shortCode = $this->generateShortCode();
+        $shortCode = $this->generateUniqueShortCode();
         $this->db->saveUrl($url, $shortCode);
         return $this->baseUrl . '/' . $shortCode;
+    }
+
+    private function generateUniqueShortCode($length = 6)
+    {
+        do {
+            $shortCode = $this->generateShortCode($length);
+        } while ($this->db->shortCodeExists($shortCode));
+
+        return $shortCode;
     }
 
     private function generateShortCode($length = 6)

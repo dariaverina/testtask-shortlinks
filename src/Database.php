@@ -44,4 +44,11 @@ class Database
         $stmt->execute(['short_code' => $shortCode]);
         return $stmt->fetch(PDO::FETCH_ASSOC);
     }
+
+    public function shortCodeExists($shortCode)
+    {
+        $stmt = $this->pdo->prepare('SELECT COUNT(*) FROM urls WHERE short_code = :short_code');
+        $stmt->execute(['short_code' => $shortCode]);
+        return $stmt->fetchColumn() > 0;
+    }
 }
