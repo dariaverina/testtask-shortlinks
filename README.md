@@ -8,7 +8,7 @@
 
 Если вы ещё не клонировали репозиторий, используйте команду:
 
-git clone https://github.com/ваш-пользователь/ваш-проект.git
+git clone https://github.com/dariaverina/testtask-shortlinks.git
 
 ### 2. Настройка конфигурации
 

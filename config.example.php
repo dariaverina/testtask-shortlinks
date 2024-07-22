@@ -1,10 +1,10 @@
 <?php
 return [
     'db' => [
-        'host' => 'localhost',
+        'host' => 'your_hostname',
         'dbname' => 'url_shortener',
-        'user' => 'root',
-        'password' => 'simple4345',
+        'user' => 'your_username',
+        'password' => 'your_password',
         'charset' => 'utf8',
     ],
 ];
